@@ -6,7 +6,9 @@ const App = () => {
   return (
     <div>
    <Navbar/>
+   <div className='p-1'>
    <Manager/>
+   </div>
    </div>
   )
 }

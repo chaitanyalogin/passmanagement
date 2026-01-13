@@ -4,7 +4,7 @@ const Manager = () => {
   const [form, setForm] = useState({
     site: "",
     username: "",
-    password: ""
+    password: "",
   });
 
   const [passwordArray, setPasswordArray] = useState([]);
@@ -47,7 +47,6 @@ const Manager = () => {
   return (
     <div className="mx-auto max-w-4xl bg-slate-800 p-6">
       <div className="bg-slate-50 p-6 rounded-lg">
-
         <h1 className="text-4xl font-bold text-center mb-2">
           <span className="text-green-700">/&lt;</span>
           Pass
@@ -60,7 +59,6 @@ const Manager = () => {
 
         {/* 🔴 FORM STARTS HERE */}
         <form onSubmit={handleSubmit} className="space-y-4">
-
           <input
             name="site"
             value={form.site}
@@ -95,10 +93,35 @@ const Manager = () => {
               Submit
             </button>
           </div>
-
         </form>
         {/* 🔴 FORM ENDS HERE */}
+      </div>
 
+      <div className="flex justify-center p-1">
+        <h2 className="text-white" >Your Credentials</h2>
+      </div>
+      
+      <div className=" rounded-md overflow-hidden ">
+        <table className="table-auto  rounded-md w-full bg-green-50 ">
+          <thead>
+            <tr className="bg-green-100" >
+              <th className="py-2" >Site</th>
+              <th className="py-2">Username</th>
+              <th className="py-2">Password</th>
+            </tr>
+          </thead>
+          <tbody>
+            {passwordArray.map((item)=> {
+                return <tr>
+                           
+              <td className="text-center w-32">{item.site}</td>
+              <td className="text-center w-32">{item.username}</td>
+              <td className="text-center w-32">{item.password}</td>
+            </tr>
+              })}
+             
+          </tbody>
+        </table>
       </div>
     </div>
   );
